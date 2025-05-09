@@ -1,0 +1,73 @@
+
+<button id="theme-toggle" aria-label="Toggle Theme">
+  <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#414245" width="24" height="24">
+    <circle cx="12" cy="12" r="5"/>
+    <g stroke="#414245" stroke-width="2">
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </g>
+  </svg>
+
+  <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#414245" width="24" height="24">
+    <path d="M21 12.79A9 9 0 0111.21 3a7 7 0 000 14A9 9 0 0121 12.79z"/>
+  </svg>
+</button>
+
+<style>
+  button#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.3s;
+  }
+
+  button#theme-toggle:hover {
+    background: #EAEAEA;
+  }
+
+  #icon-sun,
+  #icon-moon {
+    display: none;
+  }
+
+  :root.light #icon-sun {
+    display: block;
+  }
+
+  :root.dark #icon-moon {
+    display: block;
+  }
+</style>
+
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  toggleButton?.addEventListener('click', () => {
+    const root = document.documentElement;
+    if (root.classList.contains('light')) {
+      root.classList.remove('light');
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      root.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
+  // Load theme from localStorage on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    document.documentElement.classList.add(savedTheme || 'light');
+  });
+</script>

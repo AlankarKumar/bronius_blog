@@ -1,0 +1,120 @@
+---
+
+import {getAllTags} from '../../src/lib/getTags.js';
+
+const tags = await getAllTags();
+
+---
+<div class="section-container">
+
+<h1>Orbits</h1>
+ <div class="orbit-bg">
+<svg width="150" height="150" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Center star -->
+  <circle cx="150" cy="150" r="10" fill="#545557" />
+
+  <!-- Orbit paths -->
+  <circle cx="150" cy="150" r="40" fill="none" stroke="#A7A7A7" stroke-width="0.5"/>
+  <circle cx="150" cy="150" r="70" fill="none" stroke="#A7A7A7" stroke-width="0.5"/>
+  <circle cx="150" cy="150" r="100" fill="none" stroke="#A7A7A7" stroke-width="0.5"/>
+
+  <!-- Planets -->
+  <circle r="4" fill="#414245">
+    <animateTransform attributeName="transform"
+      type="rotate"
+      from="0 150 150"
+      to="360 150 150"
+      dur="6s"
+      repeatCount="indefinite" />
+    <animate attributeName="cx" from="190" to="190" dur="0.01s" begin="0s" fill="freeze" />
+    <animate attributeName="cy" from="150" to="150" dur="0.01s" begin="0s" fill="freeze" />
+  </circle>
+
+  <circle r="5" fill="#A7A7A7">
+    <animateTransform attributeName="transform"
+      type="rotate"
+      from="0 150 150"
+      to="360 150 150"
+      dur="10s"
+      repeatCount="indefinite" />
+    <animate attributeName="cx" from="220" to="220" dur="0.01s" begin="0s" fill="freeze" />
+    <animate attributeName="cy" from="150" to="150" dur="0.01s" begin="0s" fill="freeze" />
+  </circle>
+
+  <circle r="3" fill="#EAEAEA">
+    <animateTransform attributeName="transform"
+      type="rotate"
+      from="0 150 150"
+      to="360 150 150"
+      dur="16s"
+      repeatCount="indefinite" />
+    <animate attributeName="cx" from="250" to="250" dur="0.01s" begin="0s" fill="freeze" />
+    <animate attributeName="cy" from="150" to="150" dur="0.01s" begin="0s" fill="freeze" />
+  </circle>
+</svg>
+      </div>
+</div>
+  <ul class="tag_grid">
+  {tags.map(tag => (
+  <li><a href={`tags/${tag}`} class="tag"><h4>#{tag}</h4></a></li>
+  ))}
+  </ul>
+
+<style>
+
+  .section-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  };
+  h1{
+    text-align: center;
+  }
+  ul{
+    
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin -top: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul li {
+    width: 50%;
+  }
+.tag-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+.tag {
+     width: 100%;
+    display: block;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: var(--dark, #414245);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+
+  .tag:hover {
+    background-color: var(--highlight, #EBEBEB);
+    color: var(--black, #414245);
+  }
+
+  .orbit-bg{
+  }
+
+
+  
+</style>
