@@ -3,7 +3,9 @@ const today = new Date();
 ---
 
 <footer>
+  <div>
 	&copy; {today.getFullYear()} Alankar Kumar. All rights reserved.
+  </div>
 	<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
@@ -44,9 +46,13 @@ const today = new Date();
     position: relative;
     max-height:fit-content; 
     width: 100%;
+padding: 2rem 0;
     bottom: 0;
     left:0;
-		padding: 2em 1em 6em 1em;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 		background: rbg(var(--gray-light)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
