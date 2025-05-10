@@ -5,7 +5,45 @@
 
 <div class="section-container">
 <h1>Missions</h1>
-<svg width="100" height="200" viewBox="0 0 120 240" xmlns="http://www.w3.org/2000/svg">
+  
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Saucer body -->
+  <ellipse cx="150" cy="120" rx="100" ry="30" fill="#A7A7A7" stroke="#545557" stroke-width="2"/>
+
+  <!-- Dome -->
+  <ellipse cx="150" cy="100" rx="50" ry="20" fill="#EAEAEA" stroke="#545557" stroke-width="1.5"/>
+
+  <!-- Lights on perimeter -->
+  <circle cx="60" cy="120" r="5" fill="#EAEAEA">
+    <animate attributeName="fill" values="#EAEAEA;#A7A7A7;#EAEAEA" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="90" cy="135" r="5" fill="#EAEAEA">
+    <animate attributeName="fill" values="#A7A7A7;#EAEAEA;#A7A7A7" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="120" cy="140" r="5" fill="#EAEAEA">
+    <animate attributeName="fill" values="#EAEAEA;#A7A7A7;#EAEAEA" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="180" cy="140" r="5" fill="#EAEAEA">
+    <animate attributeName="fill" values="#A7A7A7;#EAEAEA;#A7A7A7" dur="1.7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="210" cy="135" r="5" fill="#EAEAEA">
+    <animate attributeName="fill" values="#EAEAEA;#A7A7A7;#EAEAEA" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="240" cy="120" r="5" fill="#EAEAEA">
+    <animate attributeName="fill" values="#A7A7A7;#EAEAEA;#A7A7A7" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Tractor beam -->
+  <polygon points="130,120 170,120 200,200 100,200" fill="rgba(167, 167, 167, 0.15)">
+    <animate attributeName="opacity" values="0.15;0.05;0.15" dur="2s" repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Hover motion -->
+  <animateTransform attributeName="transform" type="translate"
+    values="0,0; 0,3; 0,0" dur="2.5s" repeatCount="indefinite"/>
+
+</svg>
+<svg width="100" height="150" viewBox="0 0 120 240" xmlns="http://www.w3.org/2000/svg">
   <!-- Nose cone -->
   <polygon points="60,10 70,40 50,40" fill="#A7A7A7" />
 
@@ -79,8 +117,8 @@
   </div>
 
 <ul class="tag-grid">
-  <li class="tag"><h5>ecommerce-design-system</h5></li>
-  <li class="tag"><h5>ecommerce-whitelabel-app</h5></li>
+  <li ><a class="tag" href=""><h5>ecommerce-design-system</h5></a></li>
+  <li ><a class="tag" href=""><h5>ecommerce-whitelabel-app</h5></a></li>
 </ul>
 <style>
   ul{
@@ -104,7 +142,7 @@
     width: 100%;
     display: block;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     background-color: var(--accent);
     color: var(--dark, #414245);
     text-decoration: none;
@@ -113,7 +151,7 @@
   }
 
   .tag:hover {
-    background-color: var(--highlight, #EBEBEB);
+    background-color: var(--gray-light );
     color: var(--black, #414245);
   }
 .section-container{
