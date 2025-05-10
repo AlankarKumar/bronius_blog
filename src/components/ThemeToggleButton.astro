@@ -32,8 +32,11 @@
     transition: background 0.3s;
   }
 
-  button#theme-toggle:hover {
-    background: #EAEAEA;
+  :root.light button#theme-toggle:hover {
+    background: var(--accent-dark);
+  }
+  :root.dark button#theme-toggle:hover{
+    background: var(--accent); 
   }
 
   #icon-sun,
@@ -47,7 +50,11 @@
 
   :root.dark #icon-moon {
     display: block;
+    background: #EAEAEA;
+    border-radius: 50%;
+
   }
+
 </style>
 
 <script>
