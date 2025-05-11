@@ -6,7 +6,6 @@ export async function getAllTags() {
 
   posts.forEach((post) => {
     post.data.tags?.forEach((tag) => tagSet.add(tag));
-    console.log(post.data);
   });
 
   return Array.from(tagSet).sort();
