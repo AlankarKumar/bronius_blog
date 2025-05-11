@@ -7,52 +7,7 @@ const tags = await getAllTags();
 ---
 <div class="section-container">
 
-<h1>Orbits</h1>
- <div class="orbit-bg">
-<svg width="150" height="150" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- Center star -->
-  <circle cx="150" cy="150" r="10" fill="#545557" />
-
-  <!-- Orbit paths -->
-  <circle cx="150" cy="150" r="40" fill="none" stroke="#A7A7A7" stroke-width="4"/>
-  <circle cx="150" cy="150" r="70" fill="none" stroke="#A7A7A7" stroke-width="3"/>
-  <circle cx="150" cy="150" r="100" fill="none" stroke="#A7A7A7" stroke-width="1.5"/>
-
-  <!-- Planets -->
-  <circle r="4" fill="#414245">
-    <animateTransform attributeName="transform"
-      type="rotate"
-      from="0 150 150"
-      to="360 150 150"
-      dur="6s"
-      repeatCount="indefinite" />
-    <animate attributeName="cx" from="190" to="190" dur="0.01s" begin="0s" fill="freeze" />
-    <animate attributeName="cy" from="150" to="150" dur="0.01s" begin="0s" fill="freeze" />
-  </circle>
-
-  <circle r="5" fill="#A7A7A7">
-    <animateTransform attributeName="transform"
-      type="rotate"
-      from="0 150 150"
-      to="360 150 150"
-      dur="10s"
-      repeatCount="indefinite" />
-    <animate attributeName="cx" from="220" to="220" dur="0.01s" begin="0s" fill="freeze" />
-    <animate attributeName="cy" from="150" to="150" dur="0.01s" begin="0s" fill="freeze" />
-  </circle>
-
-  <circle r="3" fill="#EAEAEA">
-    <animateTransform attributeName="transform"
-      type="rotate"
-      from="0 150 150"
-      to="360 150 150"
-      dur="16s"
-      repeatCount="indefinite" />
-    <animate attributeName="cx" from="250" to="250" dur="0.01s" begin="0s" fill="freeze" />
-    <animate attributeName="cy" from="150" to="150" dur="0.01s" begin="0s" fill="freeze" />
-  </circle>
-</svg>
-      </div>
+<h1>Orbits🌀</h1>
 </div>
   <ul class="tag_grid">
   {tags.map(tag => (
