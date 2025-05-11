@@ -20,7 +20,11 @@ const posts = (await getCollection('blog')).sort(
 				width: 960px;
 			}
 			ul {
+    width: 100%;
 				display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 				flex-wrap: wrap;
 				gap: 2rem;
 				list-style-type: none;
@@ -28,23 +32,27 @@ const posts = (await getCollection('blog')).sort(
 				padding: 0;
 			}
 			ul li {
-				width: calc(50% - 1rem);
+    width: 80%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 			}
 			ul li * {
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
+			<!-- ul li:first-child { -->
+			<!-- 	width: 100%; -->
+			<!-- 	margin-bottom: 1rem; -->
+			<!-- 	text-align: center; -->
+			<!-- } -->
+			<!-- ul li:first-child img { -->
+			<!-- 	width: 100%; -->
+			<!-- } -->
+			<!-- ul li:first-child .title { -->
+			<!-- 	font-size: 2.369rem; -->
+			<!-- } -->
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
@@ -83,6 +91,15 @@ const posts = (await getCollection('blog')).sort(
 					font-size: 1.563em;
 				}
 			}
+  .info{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    }
+    
+
 		</style>
 	</head>
 	<body>
@@ -94,12 +111,16 @@ const posts = (await getCollection('blog')).sort(
 						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
 									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
 								</a>
+              <p>{post.data.description}</p>
+            <div class="info">
+									<p class="date">
+										🗓️<FormattedDate date={post.data.pubDate} />
+									</p>
+              &nbsp;&nbsp;
+              <p class="tags">{post.data.tags.reduce((accumulator, tag) => accumulator + ` 🏷️${tag}`, "")}</p> 
+            </div> 
 							</li>
 						))
 					}
