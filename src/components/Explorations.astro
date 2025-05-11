@@ -1,5 +1,9 @@
 
-<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+
+<div class="section-container">
+
+<h1>Explorations</h1>
+<svg width="150" height="100" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
   <!-- Saucer body -->
   <ellipse cx="150" cy="120" rx="100" ry="30" fill="#A7A7A7" stroke="#545557" stroke-width="2"/>
 
@@ -28,11 +32,23 @@
 
   <!-- Tractor beam -->
   <polygon points="130,120 170,120 200,200 100,200" fill="rgba(167, 167, 167, 0.15)">
-    <animate attributeName="opacity" values="0.15;0.05;0.15" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.50.5;0.5" dur="1s" repeatCount="indefinite"/>
   </polygon>
 
   <!-- Hover motion -->
   <animateTransform attributeName="transform" type="translate"
-    values="0,0; 0,3; 0,0" dur="2.5s" repeatCount="indefinite"/>
+    values="0,0; 0,3; 0,0" dur="1s" repeatCount="indefinite"/>
 
 </svg>
+</div>
+<style>
+
+  .section-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  };
+</style>
+
