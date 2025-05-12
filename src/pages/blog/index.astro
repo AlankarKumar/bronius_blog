@@ -42,17 +42,6 @@ const posts = (await getCollection('blog')).sort(
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			<!-- ul li:first-child { -->
-			<!-- 	width: 100%; -->
-			<!-- 	margin-bottom: 1rem; -->
-			<!-- 	text-align: center; -->
-			<!-- } -->
-			<!-- ul li:first-child img { -->
-			<!-- 	width: 100%; -->
-			<!-- } -->
-			<!-- ul li:first-child .title { -->
-			<!-- 	font-size: 2.369rem; -->
-			<!-- } -->
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
@@ -67,7 +56,6 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -97,6 +85,14 @@ const posts = (await getCollection('blog')).sort(
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    color: rgb(var(--gray-dark));
+    margin-top: 1rem;
+    
+    }
+
+    .description{
+    margin-top: 1rem;
+      color: rgb(var(--gray));
     }
     
 
@@ -110,16 +106,18 @@ const posts = (await getCollection('blog')).sort(
 					{
 						posts.map((post) => (
 							<li>
+
 								<a href={`/blog/${post.id}/`}>
-									<h4 class="title">{post.data.title}</h4>
+									<h3 class="title">{post.data.title}</h3>
 								</a>
-              <p>{post.data.description}</p>
+              
+              <div class="description">{post.data.description}</div>
             <div class="info">
-									<p class="date">
+									<div class="date">
 										🗓️<FormattedDate date={post.data.pubDate} />
-									</p>
+									</div>
               &nbsp;&nbsp;
-              <p class="tags">{post.data.tags.reduce((accumulator, tag) => accumulator + ` 🏷️${tag}`, "")}</p> 
+              <div class="tags">{post.data.tags.reduce((accumulator, tag) => accumulator + ` 🏷️${tag}`, "")}</div> 
             </div> 
 							</li>
 						))
