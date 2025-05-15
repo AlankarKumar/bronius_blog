@@ -31,7 +31,20 @@ import Footer from '../components/Footer.astro';
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
 			}
+    .prose p{
+    text-align: justify;
+    line-height: 30px;
+    }
+    .prose ul{
+    text-align: left;
+    line-height: 36px;
+    }
 			.title {
 				margin-bottom: 1em;
 				padding: 1em 0;
@@ -60,29 +73,21 @@ import Footer from '../components/Footer.astro';
 				<!-- </div> -->
 				<div class="prose">
 					<div class="title">
-  <h1>👋 About Me</h1>
+  <h2>👋 About Me</h2>
 						<hr />
-  <p>Hello! I'm <strong>Alankar Kumar</strong>, a passionate <strong>Full Stack Developer</strong> with over <strong>9 years of experience</strong> crafting web applications and scalable digital products. I specialize in building clean, performant, and accessible user interfaces using <strong>Angular</strong>, <strong>React</strong>, and <strong>Node.js</strong>, complemented by backend services and <strong>cloud-native architectures</strong> on <strong>AWS</strong> and <strong>Azure</strong>.</p>
+  <p>Hello! I'm <strong>Alankar</strong>, a passionate <strong>Full Stack Developer</strong> with over <strong>9 years of experience</strong> crafting web applications and scalable digital products. I specialize in building clean, performant, and accessible user interfaces using <strong>Angular</strong>, <strong>React</strong>, and <strong>Node.js</strong>, complemented by backend services and <strong>cloud-native architectures</strong> on <strong>AWS</strong> and <strong>Azure</strong>.</p>
 
   <p>My expertise spans from building dynamic front-end experiences to implementing secure, efficient back-end services and integrating third-party APIs, payment gateways, and authentication systems. I’m deeply invested in writing maintainable, scalable code and developing component-driven design systems that streamline product development.</p>
 
   <h2>🚀 What I Do</h2>
 
-  <p>As a <strong>React Developer</strong> and <strong>Angular Developer</strong>, I thrive on designing and building seamless, responsive, and accessible web interfaces. I also work as a <strong>Node Developer</strong>, creating backend APIs, cloud functions, and integrating microservices architecture on AWS and Azure.</p>
-
-  <p>I’m currently working on two personal projects:</p>
-  <ul>
-    <li><strong>An eCommerce Design System:</strong> A reusable, scalable, and accessible component library tailored for online storefronts.</li>
-    <li><strong>A White-Label Commerce Application:</strong> A modular, plug-and-play eCommerce platform that businesses can easily customize and launch.</li>
-  </ul>
-
-  <p>These projects allow me to push boundaries with modern web development stacks, performance optimization, and cloud-first deployments.</p>
+  <p>As a <strong>React Developer</strong>, I thrive on designing and building seamless, responsive, and accessible web interfaces. I also work as a <strong>Node Developer</strong>, creating backend APIs, cloud functions, and integrating microservices architecture on AWS and Azure.</p>
 
   <h2>🛠️ Technical Skills</h2>
 
   <ul>
     <li><strong>Languages:</strong> JavaScript (ES6+), TypeScript, HTML5, CSS3, SCSS</li>
-    <li><strong>Frontend:</strong> Angular, React, Redux, RxJS, Web Accessibility (WCAG), Responsive Design</li>
+                <li><strong>Frontend:</strong> Angular, React,NextJS,React Native, Redux, RxJS, Web Accessibility (WCAG), Responsive Design</li>
     <li><strong>Backend:</strong> Node.js, Express.js, RESTful APIs, MongoDB, SQL</li>
     <li><strong>Cloud &amp; DevOps:</strong> AWS (Amplify, Lambda, S3, CloudFront), Azure (Functions, App Services), CI/CD (GitHub Actions, Jenkins), Docker</li>
     <li><strong>Tools:</strong> Storybook, Nx Monorepos, Git, Figma, JIRA</li>
@@ -95,8 +100,6 @@ import Footer from '../components/Footer.astro';
     <li><strong>Microsoft Certified:</strong> Azure Developer Associate</li>
     <li><strong>AWS Certified Developer – Associate</strong></li>
   </ul>
-
-  <p>These certifications validate my skills in architecting, developing, and deploying modern cloud-based applications.</p>
 
   <h2>🖥️ Personal Projects</h2>
 
