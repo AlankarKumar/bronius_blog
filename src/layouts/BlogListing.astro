@@ -24,7 +24,7 @@ const {posts} = Astro.props;
         justify-content: center;
         align-items: center;
 				flex-wrap: wrap;
-				gap: 4rem;
+				gap: rem;
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
@@ -106,7 +106,7 @@ const {posts} = Astro.props;
 			<section>
 				<ul>
 					{
-						posts.map((post) => (
+						posts.map((post:any) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
 									<h3 class="title">{post.data.title}</h3>
@@ -118,7 +118,7 @@ const {posts} = Astro.props;
 										🗓️<FormattedDate date={post.data.pubDate} />
 									</div>
               &nbsp;&nbsp;
-              <div class="tags">{post.data.tags.map(( tag) =>  <a href=`${tag}` class="tag">🏷️{tag}</a>)}</div> 
+              <div class="tags">{post.data.tags.map(( tag:any) =>  <a href=`${tag}` class="tag">🏷️{tag}</a>)}</div> 
             </div> 
 							</li>
 						))
