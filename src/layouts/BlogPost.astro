@@ -47,13 +47,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+    .container{
+    padding: 0 2em;
+    }
 		</style>
 	</head>
 
 	<body>
 		<Header />
 		<main>
-			<article>
+			<article class="container">
 				<div class="hero-image">
 					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
 				</div>
