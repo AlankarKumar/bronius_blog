@@ -173,15 +173,7 @@ input {
   font-size: 16px;
 }
 table {
-  width: 90%;
-}
-
-table,
-th,
-td {
-  border: 1px solid rgb(var(--gray-dark));
-  border-collapse: collapse;
-  text-align: center;
+  width: 100%;
 }
 img {
   max-width: 100%;
