@@ -194,10 +194,12 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-x: auto;
+  width : 90%
   max-width: 90%;
 }
 pre > code {
   all: unset;
+  width: 90%;
   max-width: 90%;
 }
 blockquote {
