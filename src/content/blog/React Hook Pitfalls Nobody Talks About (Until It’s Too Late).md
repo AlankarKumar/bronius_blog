@@ -13,76 +13,76 @@ status: published
 pubDate: May 22 2025
 ---
 
-If you're not sure you should be reading this through or investing time understanding hooks better, here's some motivation for you. 
+*If you're not sure you should be reading this through or investing time understanding hooks better, here's some motivation for you.* 
 
 https://github.com/vercel/next.js/issues/46329
  
-I came across this because when the Order Success Page stopped loading on a large scale e-commerce webapp on a black friday sale. 
+*I came across this because when the Order Success Page stopped loading on a large scale e-commerce webapp on a black friday sale.* 
 
-Reason - Race condition in useEffect hook. 
+*Reason - Race condition in useEffect hook.* 
 
-Hooks look simple. Hooks pretend to be simple. Hooks are the kind of friend who seems chill until you realize they’ve got a conspiracy wall in their basement. 
+> Hooks look simple. Hooks pretend to be simple. Hooks are the kind of friend who seems chill until you realize they’ve got a conspiracy wall in their basement. 
 
 Everyone learns useState and useEffect in 10 minutes and thinks, “Cool, I’m a React dev now.”
 But in production, they start behaving like tiny chaos gremlins.
 
-Let’s unpack why.
+*Let’s unpack why.*
 
-🪄 The Illusion of Simplicity
+## 🪄 The Illusion of Simplicity
 
-React’s sales pitch was:
+**React’s sales pitch was:**
 
-“No more classes! No more this keyword! It’s just functions now. Clean, pure, innocent functions.”
+>  “No more classes! No more this keyword! It’s just functions now. Clean, pure, innocent functions.”
 
 And that’s true — until you have:
 
-Multiple effects relying on each other.
+- Multiple effects relying on each other.
 
-Async events to clean up.
+- Async events to clean up.
 
-Weird bugs from stale closures that make you question your life choices.
+- Weird bugs from stale closures that make you question your life choices.
 
-The API is clean.
-The consequences? Not so much.
+**The API is clean.**
+**The consequences? Not so much.**
 
-🧠 React’s Render Cycle with Hooks — How it Actually Works
+## 🧠 React’s Render Cycle with Hooks — How it Actually Works
 
-Quick version:
+**Quick version:**
 
-Render phase: React runs your component like a normal function. All Hooks register themselves in order.
-
-Commit phase: DOM updates.
-
-Post-commit:
-
-useLayoutEffect runs synchronously (block render).
-
-useEffect runs asynchronously after paint.
+> Render phase: React runs your component like a normal function. All Hooks register themselves in order.
+> 
+> Commit phase: DOM updates.
+> 
+> Post-commit:
+> 
+> useLayoutEffect runs synchronously (block render).
+> 
+> useEffect runs asynchronously after paint.
 
 And here’s the trick:
 Each effect’s cleanup runs before its next execution or on unmount.
 
-📊 Visual Summary:
+## 📊 Visual Summary:
 
-
-Render → Commit DOM → useLayoutEffect (sync) → useEffect (async)
+```text
+[Render] → [Commit DOM] → [useLayoutEffect (sync)] → [useEffect (async)]
              |                                    |
              |                                    +-- side effects start
              +-- function body runs, Hooks register
+```
+
+> Bonus: No, React does not guarantee the order of multiple useEffects in the same render. Another plot twist.
+> 
+
+## ⚠️ What Actually Happens When…
 
 
-Bonus: No, React does not guarantee the order of multiple useEffects in the same render. Another plot twist.
+### 🎯 You have multiple effects depending on each other?
 
+***✋🏻🛑⛔️ Bad idea.***
+> Splitting interdependent logic across multiple `useEffects` is like trying to cook a meal in four different kitchens at the same time.
 
-⚠️ What Actually Happens When…
-
-
-🎯 You have multiple effects depending on each other?
-
-✋🏻🛑⛔️ Bad idea.
-Splitting interdependent logic across multiple useEffects is like trying to cook a meal in four different kitchens at the same time.
-
-Problem:
+**Problem:**
 React doesn’t promise when those effects will run relative to one another within the same phase. You’ll get race conditions or weird bugs where one effect depends on state that hasn’t updated yet.
 
 Bad Example:
