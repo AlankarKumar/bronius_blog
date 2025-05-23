@@ -213,7 +213,7 @@ hr {
   }
   main {
     padding: 10em 1em 5em 1em;
-    width: 90%;
+    max-width: 90%;
   }
 }
 
