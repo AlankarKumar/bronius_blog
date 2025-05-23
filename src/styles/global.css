@@ -172,6 +172,9 @@ code {
 pre {
   padding: 1.5em;
   border-radius: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
 }
 pre > code {
   all: unset;
