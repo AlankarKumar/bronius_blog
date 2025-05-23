@@ -1,0 +1,31 @@
+name: Sync Obsidian Blog Content
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-blog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Astro repo
+        uses: actions/checkout@v4
+
+      - name: Clone Obsidian Vault
+        run: |
+          git clone --depth 1 https://github.com/yourusername/obsidian-vault.git vault
+
+      - name: Copy blog content to Astro content folder
+        run: |
+          rm -rf vault/Blog/*
+          cp -r vault/Blog/* vault/Blog/
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/blog/
+          git commit -m "chore: sync blog posts from Obsidian Vault" || echo "No changes to commit"
+          git push
