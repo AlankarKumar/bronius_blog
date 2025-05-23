@@ -194,10 +194,11 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-x: auto;
-  max-width: 100%;
+  max-width: 90%;
 }
 pre > code {
   all: unset;
+  max-width: 90%;
 }
 blockquote {
   border-left: 4px solid var(--accent);
