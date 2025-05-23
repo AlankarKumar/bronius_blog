@@ -6,6 +6,9 @@
 html {
   overflow-x: hidden;
 }
+* {
+  outline: 1px solid red;
+}
 :root {
   /* Accent grays (adjusted for accessibility) */
   --accent: #7a7a7a; /* Adjusted medium-dark gray */
