@@ -24,7 +24,7 @@ const {posts} = Astro.props;
         justify-content: center;
         align-items: center;
 				flex-wrap: wrap;
-				gap: rem;
+				gap: 2.5rem;
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
@@ -40,17 +40,13 @@ const {posts} = Astro.props;
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
 			ul li a {
 				display: block;
 			}
 			.title {
 				margin: 0;
 				color: rgb(var(--black));
-				line-height: 1;
+				line-height: 1.2;
 			}
       .title:hover{
         color: rgb(var(--gray));
@@ -72,12 +68,6 @@ const {posts} = Astro.props;
 				ul li {
 					width: 100%;
 					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
 				}
 			}
   .info{
@@ -109,7 +99,7 @@ const {posts} = Astro.props;
 						posts.map((post:any) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
-									<h3 class="title">{post.data.title}</h3>
+									<h4 class="title">{post.data.title}</h4>
 								</a>
               
               <div class="description">{post.data.description}</div>
